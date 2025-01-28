@@ -1,41 +1,24 @@
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
 
 export default function Index() {
   return (
     <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Ionicons name="person-circle-outline" size={40} color="white" />
-        <Text style={styles.branding}>Uber</Text>
-      </View>
-
-      {/* Map Placeholder */}
-      <View style={styles.mapPlaceholder}>
-        <Text style={styles.mapText}>Map will go here</Text>
-      </View>
-
-      {/* Ride Options */}
-      <View style={styles.rideOptions}>
-        <TouchableOpacity style={styles.optionButton}>
-          <Ionicons name="car-outline" size={24} color="black" />
-          <Text style={styles.optionText}>Ride</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton}>
-          <Ionicons name="bicycle-outline" size={24} color="black" />
-          <Text style={styles.optionText}>Bike</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.optionButton}>
-          <Ionicons name="fast-food-outline" size={24} color="black" />
-          <Text style={styles.optionText}>Delivery</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Footer */}
-      <Link href="/about" style={styles.linkButton}>
-        Learn More
-      </Link>
+      <Text style={styles.logo}>Carpool App</Text>
+      <Text style={styles.heading}>Get a Ride in Minutes</Text>
+      <Text style={styles.subheading}>
+        Tap below to start your journey or offer a ride.
+      </Text>
+      <TouchableOpacity style={styles.primaryButton}>
+        <Link href="/ride" style={styles.buttonText}>
+          Find a Ride
+        </Link>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.secondaryButton}>
+        <Link href="/offer" style={styles.secondaryButtonText}>
+          Offer a Ride
+        </Link>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -43,57 +26,58 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
+    backgroundColor: '#000',
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 20,
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+  logo: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#fff',
     marginBottom: 20,
   },
-  branding: {
+  heading: {
     fontSize: 24,
-    color: 'white',
-    fontWeight: 'bold',
-  },
-  mapPlaceholder: {
-    flex: 1,
-    backgroundColor: '#333',
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20,
-  },
-  mapText: {
-    color: 'white',
-    fontSize: 16,
-  },
-  rideOptions: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 20,
-  },
-  optionButton: {
-    backgroundColor: 'white',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-    width: 100,
-  },
-  optionText: {
-    marginTop: 5,
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  linkButton: {
-    backgroundColor: '#1e90ff',
-    padding: 15,
-    borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'white',
+    fontWeight: '600',
+    color: '#fff',
+    marginBottom: 10,
     textAlign: 'center',
-    fontWeight: 'bold',
+  },
+  subheading: {
+    fontSize: 16,
+    color: '#aaa',
+    textAlign: 'center',
+    marginBottom: 40,
+  },
+  primaryButton: {
+    backgroundColor: '#1db954',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 25,
+    marginBottom: 20,
+    width: '80%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: '600',
+    textDecorationLine: 'none',
+  },
+  secondaryButton: {
+    borderColor: '#1db954',
+    borderWidth: 2,
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 25,
+    width: '80%',
+    alignItems: 'center',
+  },
+  secondaryButtonText: {
+    color: '#1db954',
+    fontSize: 18,
+    fontWeight: '600',
+    textDecorationLine: 'none',
   },
 });
